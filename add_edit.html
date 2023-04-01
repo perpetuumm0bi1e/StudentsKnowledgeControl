@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <title>Список тестов</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid offset-1 col-10">
+                <a class="navbar-brand" href="./main.php">Контроль знаний студентов</a>
+                <form method=GET>
+                    <input type="submit" name="profile" value="Личный кабинет" class="btn btn-warning">
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row mt-3" style="position: relative; top: 100px;">
+                <div class="offset-2 col-8 col-md-8">
+                    <div class="text-center mb-5">
+                        <img src="https://i.ibb.co/s5xPJ62/search.png" class="rounded " style = "width: 200px; height: 200px;">
+                      </div>
+                    <h1 class="d-flex justify-content-evenly">Список тестов</h1>
+                    <p class="d-flex justify-content-evenly mb-5">Нажмите на название для изменения</p>
+                    
+                    <form method=GET>
+                    <div class = "d-flex justify-content-evenly mt-5 mb-5">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="text" placeholder="Введите название" name="name_for_search">
+                            <button class="btn btn-outline-dark" type="submit" name="search">Найти</button>
+                          </form>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <span>
+                                <?php echo $output_data; ?>
+                            </span>
+                        </tbody>
+                    </table>
+
+                    <div class="d-flex justify-content-evenly" style="position: relative; top: 100px;">
+                        <button type="button" class="btn btn-outline-dark mb-5" data-bs-toggle="modal"
+                            data-bs-target="#modal_create_new_quiz">Создать новый</button>
+                    </div>
+
+                
+                <form method=GET>
+                        <div class="modal fade" id="modal_create_new_quiz" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Добавление теста</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body mt-3">
+                                        <div class="row g-3">
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control mb-3" name="new_name" placeholder="Название">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-dark"
+                                            data-bs-dismiss="modal">Закрыть</button>
+                                        <input class="btn btn-warning" type="submit" name=create_new_test
+                                            value="Создать">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
